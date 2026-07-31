@@ -53,9 +53,6 @@ Search/read ETS documents through MCP tools
 Return final answer
 ```
 
-
-- Which MCP tools are central to this workflow (name them and say briefly what each does)?
-
 ---
 
 ## 2. Single Query
