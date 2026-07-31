@@ -1,0 +1,22 @@
+field_name,category,mandatory_for_MRV_ETS,description,example_value,notesship_name,ship_id,yes,Name of the ship as recorded in the monitoring plan,"MV Example",Core identifier; should match MP and registry
+ship_imo,ship_id,yes,IMO ship identification number,"9876543",Unique ship ID; required for all reports
+company_name,company_id,yes,Name of the shipping company responsible for the ship,"Example Shipping Ltd.",Must match company name in THETIS-MRV
+company_imo_number,company_id,yes,IMO unique company and registered owner identification number,"1234567",Links ship to responsible company
+voyage_id,voyage,optional,Internal unique identifier for the voyage,"2026-EU-001",Useful for internal tracking and cross-referencing
+departure_port,voyage,yes,Port where the voyage starts,"Piraeus",Required to define voyage scope
+departure_datetime,voyage,yes,Date and time of departure,"2026-01-10T08:00:00",Supports voyage period and distance calculations
+arrival_port,voyage,yes,Port where the voyage ends,"Hamburg",Required to define voyage scope
+arrival_datetime,voyage,yes,Date and time of arrival,"2026-01-15T14:30:00",Supports voyage period and distance calculations
+ets_scope_flag,voyage,yes,Indicates whether the voyage is within ETS scope ("yes"/"no"),"yes",Required to identify voyages covered by EU ETS
+distance_travelled_nm,voyage,yes,Distance travelled for the voyage in nautical miles,"1500",Must be calculated according to approved methodology
+fuel_type,fuel,yes,Type of fuel used on the voyage,"HFO",Must correspond to allowed fuel categories
+fuel_amount_tonnes,fuel,yes,Amount of fuel consumed for the voyage in tonnes,"500",Key input for emissions calculation
+monitoring_method,fuel,yes,Monitoring method applied (e.g. Methods A–D),"Method A",Must match MP and MRV methodology
+emission_factor_type,fuel,yes,Type of emission factor used ("default" or "actual"),"default",Important for consistency and transparency
+co2_emissions_tonnes,emissions,yes,Total CO2-equivalent emissions for the voyage in tonnes,"1600",Core output; must be complete and accurate
+annual_emissions_tonnes,emissions,yes,Total annual emissions for the ship in tonnes,"25000",Reported at ship-level for ETS/MRV compliance
+data_gap_flag,quality,optional,Indicates whether data gaps occurred for the voyage ("yes"/"no"),"no",If "yes", gap treatment methodology must be documented
+data_gap_method,quality,optional,Description or code of methodology used to close data gaps,"",Relevant where data_gap_flag = "yes"
+biofuel_zero_rating_evidence,quality,optional,Indicates whether evidence exists to support zero-rated CO2 factors for alternative fuels,"none",Important when applying zero emission factors for certain fuels
+efficiency_project_flag,operations,optional,Indicates if an efficiency project affected the voyage ("yes"/"no"),"yes",Useful for internal analysis of efficiency measures
+transport_work_category,operations,optional,High-level category of transport work (e.g. passengers, containers),"passengers",Supports efficiency metrics and reporting
